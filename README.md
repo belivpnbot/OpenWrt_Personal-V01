@@ -1,7 +1,7 @@
 [![Update_Checker](https://github.com/vpnshopee/OpenWrt_Personal-V01/actions/workflows/Update_Checker.yml/badge.svg)](https://github.com/vpnshopee/OpenWrt_Personal-V01/actions/workflows/Update_Checker.yml)
 
 [![LICENSE](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square&label=LICENSE)](https://github.com/vpnshopee/OpenWrt_Personal-V01/blob/main/LICENSE)
-[![Releases](https://img.shields.io/badge/support-X86|R4S-blue?style=flat&logo=rss)](https://github.com/vpnshopee/OpenWrt_Personal-V01/releases)
+[![Releases](https://img.shields.io/badge/support-R2C-blue?style=flat&logo=rss)](https://github.com/vpnshopee/OpenWrt_Personal-V01/releases)
 [![Lean](https://img.shields.io/badge/SourceCode-Lean-green?style=flat&logo=GitHub)](https://github.com/coolsnowwolf/lede)
 [![UpdateCheck](https://img.shields.io/badge/Automatic-UpdateCheck-blueviolet?style=flat&logo=apacheflink)](https://github.com/vpnshopee/OpenWrt_Personal-V01/actions)
 [![Actions](https://img.shields.io/badge/GithubAction-Actions-important?style=flat&logo=GitHubActions)](https://github.com/vpnshopee/OpenWrt_Personal-V01/actions)
