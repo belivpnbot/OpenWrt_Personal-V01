@@ -75,11 +75,6 @@ jobs:
     
     steps:
 
-    - uses: haishanh/actions-telegram-notification@v1
-      with:
-        notification-token: ${{ secrets.NOTIFICATION_TOKEN }}
-        job-status: ${{ job.status }}
-
 #    - name: SSH connection to Actions
 #      uses: P3TERX/ssh2actions@v1.0.0
 #      if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
@@ -194,3 +189,8 @@ jobs:
         repository: ${{ github.repository }}
         retain_days: 1
         keep_minimum_runs: 2
+        
+    - uses: haishanh/actions-telegram-notification@v1
+      with:
+        notification-token: ${{ secrets.NOTIFICATION_TOKEN }}
+        job-status: ${{ job.status }}
