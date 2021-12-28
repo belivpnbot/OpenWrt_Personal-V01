@@ -14,9 +14,9 @@ name: Update_Checker
 env:
 
   # vpnshopeeOpenWrtAction
-  REPO_URL_vpnshopeeOpenWrt_Personal: https://github.com/vpnshopee/OpenWrt_Personal
-  REPO_BRANCH_vpnshopeeOpenWrt_Personal: main
-  REPO_PATH_vpnshopeeOpenWrt_Personal : "vpnshopeeOpenWrt_Personal"
+  REPO_URL_vpnshopeeOpenWrt_Personal-V01: https://github.com/vpnshopee/OpenWrt_Personal-V01
+  REPO_BRANCH_vpnshopeeOpenWrt_Personal-V01: main
+  REPO_PATH_vpnshopeeOpenWrt_Personal-V01 : "vpnshopeeOpenWrt_Personal-V01"
 
   # Lean源码
   REPO_URL_Lede: https://github.com/coolsnowwolf/lede
@@ -90,9 +90,9 @@ jobs:
     - name: Get Commit Hash
       id: getHash
       run: |
-        git clone --depth 1 $REPO_URL_vpnshopeeOpenWrt_Personal -b $REPO_BRANCH_vpnshopeeOpenWrt_Personal $REPO_PATH_vpnshopeeOpenWrt_Personal
-        cd $REPO_PATH_vpnshopeeOpenWrt_Personal
-        echo "::set-output name=commitHash_vpnshopeeOpenWrt_Personal::$(git rev-parse HEAD)"
+        git clone --depth 1 $REPO_URL_vpnshopeeOpenWrt_Personal-V01 -b $REPO_BRANCH_vpnshopeeOpenWrt_Personal-V01 $REPO_PATH_vpnshopeeOpenWrt_Personal-V01
+        cd $REPO_PATH_vpnshopeeOpenWrt_Personal-V01
+        echo "::set-output name=commitHash_vpnshopeeOpenWrt_Personal-V01::$(git rev-parse HEAD)"
         cd
 
         git clone --depth 1 $REPO_URL_Lede -b $REPO_BRANCH_Lede $REPO_PATH_Lede
@@ -138,7 +138,7 @@ jobs:
     - name: Show Commit Head and Combination Heads
       id: combHeader
       run: |
-        echo "commitHash_vpnshopeeOpenWrt_Personal: ${{ steps.getHash.outputs.commitHash_vpnshopeeOpenWrt_Personal }}"
+        echo "commitHash_vpnshopeeOpenWrt_Personal-V01: ${{ steps.getHash.outputs.commitHash_vpnshopeeOpenWrt_Personal-V01 }}"
         echo "commitHash_Lede: ${{ steps.getHash.outputs.commitHash_Lede }}"
         echo "commitHash_Lede_Package: ${{ steps.getHash.outputs.commitHash_Lede_Package }}"
         echo "commitHash_Lede_Luci: ${{ steps.getHash.outputs.commitHash_Lede_Luci }}"
@@ -148,7 +148,7 @@ jobs:
         echo "commitHash_ThemeArgon: ${{ steps.getHash.outputs.commitHash_ThemeArgon }}"
         echo "commitHash_ArgonConfig: ${{ steps.getHash.outputs.commitHash_ArgonConfig }}"
         echo "::set-output name=commitHash_All::\
-          ${{steps.getHash.outputs.commitHash_vpnshopeeOpenWrt_Personal}}\
+          ${{steps.getHash.outputs.commitHash_vpnshopeeOpenWrt_Personal-V01}}\
           ${{steps.getHash.outputs.commitHash_Lede}}\
           ${{steps.getHash.outputs.commitHash_Lede_Package}}\
           ${{steps.getHash.outputs.commitHash_Lede_Luci}}\
@@ -168,7 +168,7 @@ jobs:
     - name: Save New Commit Hash
       if: steps.cacheHash.outputs.cache-hit != 'true'
       run: |
-        echo ${{ steps.getHash.outputs.commitHash_vpnshopeeOpenWrt_Personal }} | tee .commitHash_vpnshopeeOpenWrt_Personal
+        echo ${{ steps.getHash.outputs.commitHash_vpnshopeeOpenWrt_Personal-V01 }} | tee .commitHash_vpnshopeeOpenWrt_Personal-V01
         echo ${{ steps.getHash.outputs.commitHash_Lede }} | tee .commitHash_Lede
         echo ${{ steps.getHash.outputs.commitHash_Lede_Package }} | tee .commitHash_Lede_Package
         echo ${{ steps.getHash.outputs.commitHash_Lede_Luci }} | tee .commitHash_Lede_Luci
